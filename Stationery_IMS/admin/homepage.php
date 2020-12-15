@@ -5,7 +5,7 @@ include "header.php";
 <div id="content">
     <!--breadcrumbs-->
     <div id="content-header">
-        <div id="breadcrumb"><a href="#" title="Current page" class="tip-bottom"><i class="icon-home"></i>
+        <div id="breadcrumb"><a href="#" title="Current page" class="tip-bottom"><i class="fas fa-home"></i>
             Home</a></div>
     </div>
     <!--End-breadcrumbs-->

@@ -6,7 +6,7 @@ include "../employee/connection.php";
 <div id="content">
     <!--breadcrumbs-->
     <div id="content-header">
-        <div id="breadcrumb"><a href="#" title="Current page" class="tip-bottom"><i class="icon-home"></i>
+        <div id="breadcrumb"><a href="#" title="Current page" class="tip-bottom"><i class="fas fa-users"></i>
             Employees</a></div>
     </div>
     <!--End-breadcrumbs-->
@@ -18,8 +18,8 @@ include "../employee/connection.php";
           <div class="span12">
             <div class="widget-box">
 
-              <div class="widget-title"> <span class="icon"> <i class="icon-align-justify"></i> </span>
-                <h5>Add New Employee info</h5>
+              <div class="widget-title"> <span class="icon"> <i class="fas fa-plus"></i></span>
+                <h5>Add New Employee</h5>
               </div>
 
               <div class="widget-content nopadding">
@@ -125,7 +125,7 @@ include "../employee/connection.php";
 if(isset($_POST["submitEmployee"]))
 {
   $count =0;
-  $res = mysqli_query($link,"select * from user_registration where username ='$_POST[username]'");
+  $res = mysqli_query($link,"select * from user_registration where username ='$_POST[username]'") or die(mysqli_error($link));
   $count = mysqli_num_rows($res);
 
   if($count>0)
@@ -139,7 +139,7 @@ if(isset($_POST["submitEmployee"]))
   }
   else
   {
-    mysqli_query($link,"insert into user_registration values (NULL,'$_POST[firstname]','$_POST[lastname]','$_POST[username]','$_POST[password]','$_POST[role]','active' )")
+    mysqli_query($link,"insert into user_registration values (NULL,'$_POST[firstname]','$_POST[lastname]','$_POST[username]','$_POST[password]','$_POST[role]','active' )") or die(mysqli_error($link));
     ?>
     <script type="text/javascript">
     document.getElementById("success").style.display="block";

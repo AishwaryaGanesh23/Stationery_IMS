@@ -6,7 +6,7 @@ include "../employee/connection.php";
 <div id="content">
     <!--breadcrumbs-->
     <div id="content-header">
-        <div id="breadcrumb"><a href="#" title="Current page" class="tip-bottom"><i class="icon-home"></i>
+        <div id="breadcrumb"><a href="#" title="Current page" class="tip-bottom"><i class="fas fa-truck"></i>
             Suppliers</a></div>
     </div>
     <!--End-breadcrumbs-->
@@ -18,8 +18,8 @@ include "../employee/connection.php";
           <div class="span12">
             <div class="widget-box">
 
-              <div class="widget-title"> <span class="icon"> <i class="icon-align-justify"></i> </span>
-                <h5>Add New Supplier Info</h5>
+              <div class="widget-title"> <span class="icon"><i class="fas fa-plus"></i></span>
+                <h5>Add New Supplier</h5>
               </div>
 
               <div class="widget-content nopadding">

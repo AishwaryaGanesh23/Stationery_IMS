@@ -60,8 +60,22 @@
         </li>
 
         <li>
+            <a href="add_company.php"><i class="fas fa-building"></i><span>Company</span></a>
+        </li>
+
+        <li>
+            <a href="add_product.php"><i class="fas fa-box-open"></i><span>Products</span></a>
+        </li>
+
+        <li>
             <a href="add_supplier.php"><i class="fas fa-truck"></i><span>Suppliers</span></a>
         </li>
+
+        <li>
+            <a href="purchase_master.php"><i class="fas fa-money-check-alt"></i><span>Purchase Master</span></a>
+        </li>
+
+
 
         <li class="submenu"><a href="#"><i class="fas fa-list"></i> <span>Forms</span> <span
                 class="label label-important">3</span></a>

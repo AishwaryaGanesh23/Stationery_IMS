@@ -23,8 +23,11 @@ while($row=mysqli_fetch_array($res))
 <div id="content">
     <!--breadcrumbs-->
     <div id="content-header">
-        <div id="breadcrumb"><a href="#" title="Current page" class="tip-bottom"><i class="icon-home"></i>
-            Edit Employee</a></div>
+        <div id="breadcrumb">
+          <a href="add_employee.php" title="Add and View Employees" class="tip-bottom"><i class="fas fa-users"></i>Employees</a>
+          <a href="#" title="Current page" class="tip-bottom">Edit Employee</a>
+
+        </div>
     </div>
     <!--End-breadcrumbs-->
 
@@ -35,7 +38,7 @@ while($row=mysqli_fetch_array($res))
           <div class="span12">
             <div class="widget-box">
 
-              <div class="widget-title"> <span class="icon"> <i class="icon-align-justify"></i> </span>
+              <div class="widget-title"> <span class="icon"> <i class="fas fa-edit"></i></span>
                 <h5>Edit Employee info</h5>
               </div>
 
