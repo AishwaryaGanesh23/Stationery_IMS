@@ -34,7 +34,7 @@ while($row=mysqli_fetch_array($res))
           <div class="span12">
             <div class="widget-box">
 
-              <div class="widget-title"> <span class="icon"> <i class="fas fa-plus"></i> </span>
+              <div class="widget-title"> <span class="icon"><i class="fas fa-edit"></i>  </span>
                 <h5>Edit Product Info</h5>
               </div>
 

@@ -60,7 +60,7 @@
         </li>
 
         <li>
-            <a href="add_company.php"><i class="fas fa-building"></i><span>Company</span></a>
+            <a href="add_company.php"><i class="fas fa-building"></i><span>Companies</span></a>
         </li>
 
         <li>
@@ -75,16 +75,29 @@
             <a href="purchase_master.php"><i class="fas fa-money-check-alt"></i><span>Purchase Master</span></a>
         </li>
 
+        <li>
+            <a href="stock_master.php"><i class="fas fa-warehouse"></i><span>Stock Master</span></a>
+        </li>
+
+        <li>
+            <a href="sales_master.php"><i class="fas fa-cash-register"></i><span>Sales Master</span></a>
+        </li>
+
+        <li>
+            <a href="view_bills.php"><i class="fas fa-file-invoice-dollar"></i><span>Bills</span>
+        </li>
 
 
-        <li class="submenu"><a href="#"><i class="fas fa-list"></i> <span>Forms</span> <span
+
+
+      <!--  <li class="submenu"><a href="#"><i class="fas fa-list"></i> <span>Forms</span> <span
                 class="label label-important">3</span></a>
             <ul>
                 <li><a href="form-common.html">Basic Form</a></li>
                 <li><a href="form-validation.html">Form with Validation</a></li>
                 <li><a href="form-wizard.html">Form with Wizard</a></li>
             </ul>
-        </li>
+        </li>-->
 
     </ul>
 </div>

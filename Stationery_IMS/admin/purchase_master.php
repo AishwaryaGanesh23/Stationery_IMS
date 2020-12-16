@@ -120,7 +120,7 @@ include "../employee/connection.php";
                   <div class="control-group">
                     <label class="control-label">Date Of Purchase:</label>
                     <div class="controls">
-                      <input type="text" name = "date_of_purchase" class= "span11" placeholder="YYYY-MM-DD" required="" pattern="(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))">
+                      <input type="date" id="date_of_purchase" name="date_of_purchase" placeholder="YYYY-MM-DD" value="<?php echo date("Y-m-d") ?>" min="2018-01-01" max="<?php echo date("Y-m-d") ?>">
                     </div>
                   </div>
 
@@ -133,6 +133,56 @@ include "../employee/connection.php";
                   </div>
                 </form>
               </div>
+            </div>
+            <div class="widget-content nopadding">
+              <table class="table table-bordered table-striped">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Company Name</th>
+                    <th>Product Name</th>
+                    <th>Packing Size</th>
+                    <th>Unit</th>
+                    <th>Supplier</th>
+                    <th>Quantity</th>
+                    <th>Price Paid</th>
+                    <th>Price per unit</th>
+                    <th>Payment Method</th>
+                    <th>Purchase Date</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <?php
+                  $res = mysqli_query($link,"select * from purchase_master");
+                  while($row=mysqli_fetch_array($res))
+                  {
+                      ?>
+
+                      <tr>
+                        <td><?php echo $row["id"] ?></td>
+                        <td><?php echo $row["company_name"] ?></td>
+                        <td><?php echo $row["product_name"] ?></td>
+                        <td><?php echo $row["packing_size"] ?></td>
+                        <td><?php echo $row["unit"] ?></td>
+                          <td><?php echo $row["supplier"] ?></td>
+                        <td><?php echo $row["quantity"] ?></td>
+                        <td><?php echo $row["price"] ?></td>
+                        <td><?php
+                          $price = $row["price"];
+                          $qty = $row["quantity"];
+                          $ppu = bcdiv($row["price"],$row["quantity"]);
+                        echo $ppu; ?></td>
+                        <td><?php echo $row["payment_method"] ?></td>
+                        <td><?php echo $row["date_of_purchase"] ?></td>
+                      </tr>
+
+                      <?php
+                  }
+
+                   ?>
+
+                </tbody>
+              </table>
             </div>
 
         </div>
@@ -209,7 +259,7 @@ if(isset($_POST["submitPurchase"]))
     <script type="text/javascript">
     document.getElementById("success").style.display="block";
     setTimeout(function(){
-      window.location.href =   window.location.href;
+      window.location.href =window.location.href;
     },1000)
     </script>
     <?php
