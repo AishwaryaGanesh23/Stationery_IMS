@@ -1,5 +1,6 @@
 <?php
 include "../employee/connection.php";
+session_start();
  ?>
 
 
@@ -16,16 +17,17 @@ include "../employee/connection.php";
     <link rel="stylesheet" href="css/matrix-login.css"/>
     <link href="font-awesome/css/font-awesome.css" rel="stylesheet"/>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
+    <script src="https://kit.fontawesome.com/c116cc5e29.js" crossorigin="anonymous"></script>
 
 </head>
 <body>
 <div id="loginbox">
     <form name="loginform" class="form-vertical" action="" method = "post">
-        <div class="control-group normal_text"><h3>Login Page</h3></div>
+        <div class="control-group normal_text"><h3>Admin Login Page</h3></div>
         <div class="control-group">
             <div class="controls">
                 <div class="main_input_box">
-                    <span class="add-on bg_lg"><i class="icon-user"> </i></span><input type="text"
+                    <span class="add-on bg_lg"> <i class="fas fa-user"></i> </span><input type="text"
                                                                                        placeholder="Username" name = "username" required/>
                 </div>
             </div>
@@ -33,7 +35,7 @@ include "../employee/connection.php";
         <div class="control-group">
             <div class="controls">
                 <div class="main_input_box">
-                    <span class="add-on bg_ly"><i class="icon-lock"></i></span><input type="password"
+                    <span class="add-on bg_ly"> <i class="fas fa-key"></i> </span><input type="password"
                                                                                       placeholder="Password" name = "password" required/>
                 </div>
             </div>
@@ -55,6 +57,7 @@ include "../employee/connection.php";
       $count = mysqli_num_rows($res);
       if($count>0)
       {
+        $_SESSION["admin"]=$username;
         ?>
         <script type = "text/javascript">
           window.location = "homepage.php";

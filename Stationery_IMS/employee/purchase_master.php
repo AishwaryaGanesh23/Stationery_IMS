@@ -192,7 +192,7 @@ include "../employee/connection.php";
 if(isset($_POST["submitPurchase"]))
 {
     $todays_date = date("Y-m-d");
-    mysqli_query($link,"insert into purchase_master values(NULL,'$_POST[companyname]','$_POST[productname]','$_POST[unit]','$_POST[packingsize]',$_POST[qty],$_POST[price],'$_POST[supplier]','$_POST[payment_method]','$todays_date','$_SESSION[admin]')")or die(mysqli_error($link));
+    mysqli_query($link,"insert into purchase_master values(NULL,'$_POST[companyname]','$_POST[productname]','$_POST[unit]','$_POST[packingsize]',$_POST[qty],$_POST[price],'$_POST[supplier]','$_POST[payment_method]','$todays_date','$_SESSION[employee]')")or die(mysqli_error($link));
 
     $count =0;
     $res = mysqli_query($link,"select * from stock_master where company_name ='$_POST[companyname]'&& product_name ='$_POST[productname]' && product_unit='$_POST[unit]' && prod_pack_size = '$_POST[packingsize]'")or die(mysqli_error($link));

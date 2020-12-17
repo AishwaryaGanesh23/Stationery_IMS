@@ -28,18 +28,7 @@
 <!--top-Header-menu-->
 <div id="user-nav" class="navbar navbar-inverse">
     <ul class="nav">
-        <li class="dropdown" id="profile-messages">
-            <a title="" href="#" data-toggle="dropdown" data-target="#profile-messages" class="dropdown-toggle"><i
-                    class="far fa-user"></i> <span class="text">Welcome User</span><b class="caret"></b></a>
-            <ul class="dropdown-menu">
-                <li><a href="#"><i class="fas fa-user"></i> My Profile</a></li>
-                <li class="divider"></li>
-                <li><a href="#"><i class="fas fa-check"></i> My Tasks</a></li>
-                <li class="divider"></li>
-                <li><a href="login.html"><i class="fas fa-sign-out-alt"></i> Log Out</a></li>
-            </ul>
-        </li>
-
+        <li><a href="../employee/homepage.php"><i class="fas fa-house-user"></i> Employee Dashboard</a></li>  
 
     </ul>
 </div>
@@ -76,34 +65,27 @@
         </li>
 
         <li>
-            <a href="stock_master.php"><i class="fas fa-warehouse"></i><span>Stock Master</span></a>
-        </li>
-
-        <li>
             <a href="sales_master.php"><i class="fas fa-cash-register"></i><span>Sales Master</span></a>
         </li>
 
-        <li>
-            <a href="view_bills.php"><i class="fas fa-file-invoice-dollar"></i><span>Bills</span>
-        </li>
 
 
 
-
-      <!--  <li class="submenu"><a href="#"><i class="fas fa-list"></i> <span>Forms</span> <span
-                class="label label-important">3</span></a>
+     <li class="submenu"><a href="#"><i class="fas fa-list"></i> <span>Reports</span> <span
+                class="label label-important">+</span></a>
             <ul>
-                <li><a href="form-common.html">Basic Form</a></li>
-                <li><a href="form-validation.html">Form with Validation</a></li>
-                <li><a href="form-wizard.html">Form with Wizard</a></li>
+                <li><a href="purchase_report.php"><i class="fas fa-money-check-alt"></i> <span> Purchase Report </span> </a></li>
+                <li><a href="view_bills.php"><i class="fas fa-file-invoice-dollar"></i> <span> Sales Report </span> </a></li>
+                <li><a href="stock_master.php"><i class="fas fa-warehouse"></i> <span> Stock Report </span> </a></li>
+                <li>  <a href="returned_products_list.php"><i class="fas fa-undo-alt"></i> <span> Returns Report </span> </a></li>
             </ul>
-        </li>-->
+        </li>
 
     </ul>
 </div>
 <!--sidebar-menu-->
 <div id="search">
 
-        <a href="index.html" style="color:white"><i class="fas fa-sign-out-alt"></i><span>LogOut</span></a>
+        <a href="logout.php" style="color:white"><i class="fas fa-sign-out-alt"></i><span>LogOut</span></a>
 
 </div>

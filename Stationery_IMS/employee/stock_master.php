@@ -1,7 +1,7 @@
 <?php
 include "checklogin.php";
 include "header.php";
-include "../employee/connection.php";
+include "connection.php";
  ?>
 <!--main-container-part-->
 <div id="content">

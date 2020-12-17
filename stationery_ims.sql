@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 16, 2020 at 10:14 PM
+-- Generation Time: Dec 17, 2020 at 12:44 PM
 -- Server version: 10.1.36-MariaDB
 -- PHP Version: 5.6.38
 
@@ -47,7 +47,11 @@ INSERT INTO `billing_details` (`id`, `bill_id`, `prod_company`, `prod_name`, `pr
 (1, '1', 'Post-it', 'Cube 4 colour Sticky Note 3x3 inch', 'sheets', '40', '30', 2),
 (2, '1', 'Post-it', 'Cube 4 colour Sticky Note 3x3 inch', 'sheets', '80', '50', 1),
 (3, '2', 'Navneet', 'A4 Notebook', 'pages', '100', '25', 6),
-(4, '3', 'Scotch', 'Clear Tape', 'm', '5', '50', 3);
+(4, '3', 'Scotch', 'Clear Tape', 'm', '5', '50', 3),
+(5, '4', 'Cello', 'Butterflow Blue Ball Pens', 'pieces', '25', '250', 1),
+(7, '4', 'Navneet', 'A4 Notebook', 'pages', '100', '25', 1),
+(8, '5', 'Maped', 'Geometry Box', 'each', '1', '100', 2),
+(9, '5', 'Solimo', 'Journal', 'pages', '300', '300', 1);
 
 -- --------------------------------------------------------
 
@@ -60,17 +64,20 @@ CREATE TABLE `billing_header` (
   `phno` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
   `payment_method` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `date` date NOT NULL,
-  `bill_no` varchar(10) COLLATE utf8_unicode_ci NOT NULL
+  `bill_no` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `username` varchar(20) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `billing_header`
 --
 
-INSERT INTO `billing_header` (`id`, `phno`, `payment_method`, `date`, `bill_no`) VALUES
-(1, '7774841977', 'Cash', '2020-12-16', '00001'),
-(2, '9999999999', 'UPI', '2020-12-16', '00002'),
-(3, '123456789', 'Credit', '2020-12-16', '00003');
+INSERT INTO `billing_header` (`id`, `phno`, `payment_method`, `date`, `bill_no`, `username`) VALUES
+(1, '7774841977', 'Cash', '2020-12-16', '00001', 'admin'),
+(2, '9999999999', 'UPI', '2020-12-16', '00002', 'admin'),
+(3, '123456789', 'Credit', '2020-12-16', '00003', 'aishu'),
+(4, '2525252525', 'Debit', '2020-12-16', '00004', 'aishu'),
+(5, '8484848484', 'UPI', '2020-12-17', '00005', 'admin');
 
 -- --------------------------------------------------------
 
@@ -90,7 +97,9 @@ CREATE TABLE `customers` (
 INSERT INTO `customers` (`phno`, `full_name`) VALUES
 ('123', 'abc'),
 ('123456789', 'kuro'),
+('2525252525', 'twofive'),
 ('7774841977', 'Aishwarya'),
+('8484848484', 'eightfour'),
 ('9999999999', 'ninenine');
 
 -- --------------------------------------------------------
@@ -119,7 +128,10 @@ INSERT INTO `products` (`id`, `company_name`, `product_name`, `packing_size`, `u
 (7, 'Post-it', 'Cube 4 colour Sticky Note 3x3 inch', '40', 'sheets'),
 (8, 'Post-it', 'Cube 4 colour Sticky Note 3x3 inch', '80', 'sheets'),
 (9, 'Solimo', 'Journal', '300', 'pages'),
-(10, 'Scotch', 'Clear Tape', '5', 'm');
+(10, 'Scotch', 'Clear Tape', '5', 'm'),
+(11, 'Faber-Castell', '24 Shades Brushpen', '1', 'each'),
+(12, 'Maped', 'Geometry Box', '1', 'each'),
+(13, 'Faber-Castell', '12 Shades Brushpen', '1', 'each');
 
 -- --------------------------------------------------------
 
@@ -168,22 +180,51 @@ CREATE TABLE `purchase_master` (
   `price` decimal(10,0) NOT NULL,
   `supplier` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `payment_method` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `date_of_purchase` date NOT NULL
+  `date_of_purchase` date NOT NULL,
+  `username` varchar(50) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `purchase_master`
 --
 
-INSERT INTO `purchase_master` (`id`, `company_name`, `product_name`, `unit`, `packing_size`, `quantity`, `price`, `supplier`, `payment_method`, `date_of_purchase`) VALUES
-(8, 'Post-it', 'Cube 4 colour Sticky Note 3x3 inch', 'sheets', '80', 20, '800', 'JD wholesellers', 'Cash', '2020-12-25'),
-(9, 'Post-it', 'Cube 4 colour Sticky Note 3x3 inch', 'sheets', '40', 25, '500', 'JD wholesellers', 'Cash', '2020-12-25'),
-(12, 'Post-it', 'Cube 4 colour Sticky Note 3x3 inch', 'sheets', '80', 20, '750', 'JD wholesellers', 'Credit Card', '2020-12-25'),
-(14, 'Navneet', 'A4 Notebook', 'pages', '100', 100, '2000', 'MBD', 'Credit Card', '2020-12-10'),
-(15, 'Cello', 'Butterflow Blue Ball Pens', 'pieces', '25', 10, '2000', 'Choudhary Trading Co.', 'Digital Payment', '2020-12-15'),
-(16, 'Solimo', 'Journal', 'pages', '300', 10, '2000', 'Casa JD Fernandes', 'Bank Transfer', '2020-12-14'),
-(17, 'Natraj', 'HB Pencils', 'pieces', '10', 100, '2500', 'Choudhary Trading Co.', 'Bank Transfer', '2020-12-16'),
-(18, 'Scotch', 'Clear Tape', 'm', '5', 50, '1500', 'Choudhary Trading Co.', 'Credit Card', '2020-12-16');
+INSERT INTO `purchase_master` (`id`, `company_name`, `product_name`, `unit`, `packing_size`, `quantity`, `price`, `supplier`, `payment_method`, `date_of_purchase`, `username`) VALUES
+(8, 'Post-it', 'Cube 4 colour Sticky Note 3x3 inch', 'sheets', '80', 20, '800', 'JD wholesellers', 'Cash', '2020-12-25', 'admin'),
+(9, 'Post-it', 'Cube 4 colour Sticky Note 3x3 inch', 'sheets', '40', 25, '500', 'JD wholesellers', 'Cash', '2020-12-25', 'admin'),
+(12, 'Post-it', 'Cube 4 colour Sticky Note 3x3 inch', 'sheets', '80', 20, '750', 'JD wholesellers', 'Credit Card', '2020-12-25', 'admin'),
+(14, 'Navneet', 'A4 Notebook', 'pages', '100', 100, '2000', 'MBD', 'Credit Card', '2020-12-10', 'aishu'),
+(15, 'Cello', 'Butterflow Blue Ball Pens', 'pieces', '25', 10, '2000', 'Choudhary Trading Co.', 'Digital Payment', '2020-12-15', 'coshiro'),
+(16, 'Solimo', 'Journal', 'pages', '300', 10, '2000', 'Casa JD Fernandes', 'Bank Transfer', '2020-12-14', 'aishu'),
+(17, 'Natraj', 'HB Pencils', 'pieces', '10', 100, '2500', 'Choudhary Trading Co.', 'Bank Transfer', '2020-12-16', 'aishu'),
+(18, 'Scotch', 'Clear Tape', 'm', '5', 50, '1500', 'Choudhary Trading Co.', 'Credit Card', '2020-12-16', 'admin'),
+(19, 'Classmate', '2B Pencils', 'pieces', '20', 50, '1000', 'Royal Enterprise Stationery And Xerox', 'Cash', '2020-12-17', 'admin'),
+(20, 'Maped', 'Geometry Box', 'each', '1', 50, '5000', 'Royal Enterprise Stationery And Xerox', 'Bank Transfer', '2020-12-17', 'admin');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `returns`
+--
+
+CREATE TABLE `returns` (
+  `id` int(5) NOT NULL,
+  `bill_no` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `return_date` date NOT NULL,
+  `prod_company` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `prod_name` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `prod_unit` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `packing_size` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `prod_price` decimal(10,0) NOT NULL,
+  `prod_qty` int(10) NOT NULL,
+  `total` decimal(10,0) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `returns`
+--
+
+INSERT INTO `returns` (`id`, `bill_no`, `return_date`, `prod_company`, `prod_name`, `prod_unit`, `packing_size`, `prod_price`, `prod_qty`, `total`) VALUES
+(1, '00004', '2020-12-16', 'Natraj', 'HB Pencils', 'pieces', '10', '40', 1, '40');
 
 -- --------------------------------------------------------
 
@@ -209,10 +250,12 @@ INSERT INTO `stock_master` (`id`, `company_name`, `product_name`, `product_unit`
 (1, 'Post-it', 'Cube 4 colour Sticky Note 3x3 inch', 'sheets', '80', 39, '50'),
 (2, 'Post-it', 'Cube 4 colour Sticky Note 3x3 inch', 'sheets', '40', 23, '30'),
 (3, 'Navneet', 'A4 Notebook', 'pages', '100', 94, '25'),
-(4, 'Cello', 'Butterflow Blue Ball Pens', 'pieces', '25', 10, '250'),
-(5, 'Solimo', 'Journal', 'pages', '300', 10, '300'),
-(6, 'Natraj', 'HB Pencils', 'pieces', '10', 100, '40'),
-(7, 'Scotch', 'Clear Tape', 'm', '5', 47, '50');
+(4, 'Cello', 'Butterflow Blue Ball Pens', 'pieces', '25', 9, '250'),
+(5, 'Solimo', 'Journal', 'pages', '300', 9, '300'),
+(6, 'Natraj', 'HB Pencils', 'pieces', '10', 101, '40'),
+(7, 'Scotch', 'Clear Tape', 'm', '5', 47, '50'),
+(8, 'Classmate', '2B Pencils', 'pieces', '20', 50, '60'),
+(9, 'Maped', 'Geometry Box', 'each', '1', 48, '100');
 
 -- --------------------------------------------------------
 
@@ -333,6 +376,12 @@ ALTER TABLE `purchase_master`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `returns`
+--
+ALTER TABLE `returns`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `stock_master`
 --
 ALTER TABLE `stock_master`
@@ -364,19 +413,19 @@ ALTER TABLE `user_registration`
 -- AUTO_INCREMENT for table `billing_details`
 --
 ALTER TABLE `billing_details`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `billing_header`
 --
 ALTER TABLE `billing_header`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `prod_company`
@@ -388,13 +437,19 @@ ALTER TABLE `prod_company`
 -- AUTO_INCREMENT for table `purchase_master`
 --
 ALTER TABLE `purchase_master`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+
+--
+-- AUTO_INCREMENT for table `returns`
+--
+ALTER TABLE `returns`
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `stock_master`
 --
 ALTER TABLE `stock_master`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `suppliers`

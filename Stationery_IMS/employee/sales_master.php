@@ -455,7 +455,7 @@ if(isset($_POST["generateBill"]))
 
   $lastbillno=0;
 
-  mysqli_query($link,"insert into billing_header values(NULL,'$_POST[phno]','$_POST[paytypeheader]','$_POST[billdate]','$_POST[billno]','$_SESSION[admin]')")or die(mysqli_error($link));
+  mysqli_query($link,"insert into billing_header values(NULL,'$_POST[phno]','$_POST[paytypeheader]','$_POST[billdate]','$_POST[billno]','$_SESSION[employee]')")or die(mysqli_error($link));
   $str = mysqli_query($link,"select * from billing_header order by id desc limit 1");
   while($row=mysqli_fetch_array($str))
   {

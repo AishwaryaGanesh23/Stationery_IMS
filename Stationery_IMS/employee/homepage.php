@@ -1,4 +1,5 @@
 <?php
+include "checklogin.php";
 include "header.php";
  ?>
 <!--main-container-part-->

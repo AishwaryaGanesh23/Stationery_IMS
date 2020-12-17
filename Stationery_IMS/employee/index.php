@@ -1,5 +1,6 @@
 <?php
 include "connection.php";
+session_start();
  ?>
 
 
@@ -8,7 +9,7 @@ include "connection.php";
 <html lang="en">
 
 <head>
-    <title>Login - php inventory management system</title>
+    <title>Employee Login</title>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link rel="stylesheet" href="css/bootstrap.min.css"/>
@@ -16,6 +17,7 @@ include "connection.php";
     <link rel="stylesheet" href="css/matrix-login.css"/>
     <link href="font-awesome/css/font-awesome.css" rel="stylesheet"/>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
+    <script src="https://kit.fontawesome.com/c116cc5e29.js" crossorigin="anonymous"></script>
 
 </head>
 <body>
@@ -25,7 +27,7 @@ include "connection.php";
         <div class="control-group">
             <div class="controls">
                 <div class="main_input_box">
-                    <span class="add-on bg_lg"><i class="icon-user"> </i></span><input type="text"
+                    <span class="add-on bg_lg"> <i class="fas fa-user"></i> </span><input type="text"
                                                                                        placeholder="Username" name = "username" required/>
                 </div>
             </div>
@@ -33,7 +35,7 @@ include "connection.php";
         <div class="control-group">
             <div class="controls">
                 <div class="main_input_box">
-                    <span class="add-on bg_ly"><i class="icon-lock"></i></span><input type="password"
+                    <span class="add-on bg_ly"> <i class="fas fa-key"></i> </span><input type="password"
                                                                                       placeholder="Password" name = "password" required/>
                 </div>
             </div>
@@ -55,9 +57,10 @@ include "connection.php";
       $count = mysqli_num_rows($res);
       if($count>0)
       {
+          $_SESSION["employee"]=$username;
         ?>
         <script type = "text/javascript">
-          window.location = "demo.php";
+          window.location = "homepage.php";
         </script>
         <?php
       }

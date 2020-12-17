@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Stationery Shop IMS</title>
+    <title>Stationery Shop Employee</title>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link rel="stylesheet" href="css/bootstrap.min.css"/>
@@ -18,9 +18,9 @@
 
 <div id="header">
 
-  <h2 style="color: white;position: absolute">
-      <a href="dashboard.html" style="color:white; margin-left: 15px; margin-top: 40px">Stationery</a>
-  </h2>
+    <h2 style="color: white;position: absolute">
+        <a href="dashboard.html" style="color:white; margin-left: 15px; margin-top: 40px">Stationery</a>
+    </h2>
 </div>
 
 
@@ -28,43 +28,51 @@
 <!--top-Header-menu-->
 <div id="user-nav" class="navbar navbar-inverse">
     <ul class="nav">
-        <li class="dropdown" id="profile-messages">
-            <a title="" href="#" data-toggle="dropdown" data-target="#profile-messages" class="dropdown-toggle"><i
-                    class="far fa-user"></i> <span class="text">Welcome User</span><b class="caret"></b></a>
-            <ul class="dropdown-menu">
-                <li><a href="#"><i class="fas fa-user"></i> My Profile</a></li>
-                <li class="divider"></li>
-                <li><a href="#"><i class="icon-check"></i> My Tasks</a></li>
-                <li class="divider"></li>
-                <li><a href="login.html"><i class="icon-key"></i> Log Out</a></li>
-            </ul>
-        </li>
-
-
+        <li><a href="../admin/homepage.php"><i class="fas fa-laptop-house"></i>Admin Dashboard</a></li>
     </ul>
 </div>
 
 <!--sidebar-menu-->
 <div id="sidebar">
     <ul>
-        <li class="active">
-            <a href="index.html"><i class="icon icon-home"></i><span>Dashboard</span></a>
+        <li>
+            <a href="homepage.php"><i class="fas fa-home"></i><span>Dashboard</span></a>
+        </li>
+        <li>
+            <a href="purchase_master.php"><i class="fas fa-money-check-alt"></i><span>Purchase Master</span></a>
         </li>
 
-        <li class="submenu"><a href="#"><i class="icon icon-th-list"></i> <span>Forms</span> <span
+        <li>
+            <a href="sales_master.php"><i class="fas fa-cash-register"></i><span>Sales Master</span></a>
+        </li>
+
+        <li class="submenu"><a href="#"><i class="fas fa-list"></i> <span>Reports</span> <span
+                   class="label label-important">+</span></a>
+               <ul>
+                   <li><a href="purchase_report.php"><i class="fas fa-money-check-alt"></i> <span> Purchase Report </span> </a></li>
+                   <li><a href="view_bills.php"><i class="fas fa-file-invoice-dollar"></i> <span> Sales Report </span> </a></li>
+                   <li><a href="stock_master.php"><i class="fas fa-warehouse"></i> <span> Stock Report </span> </a></li>
+                   <li>  <a href="returned_products_list.php"><i class="fas fa-undo-alt"></i> <span> Returns Report </span> </a></li>
+               </ul>
+           </li>
+
+
+
+
+      <!--  <li class="submenu"><a href="#"><i class="fas fa-list"></i> <span>Forms</span> <span
                 class="label label-important">3</span></a>
             <ul>
                 <li><a href="form-common.html">Basic Form</a></li>
                 <li><a href="form-validation.html">Form with Validation</a></li>
                 <li><a href="form-wizard.html">Form with Wizard</a></li>
             </ul>
-        </li>
+        </li>-->
 
     </ul>
 </div>
 <!--sidebar-menu-->
 <div id="search">
 
-        <a href="index.html" style="color:white"><i class="icon icon-share-alt"></i><span>LogOut</span></a>
+        <a href="logout.php" style="color:white"><i class="fas fa-sign-out-alt"></i><span>LogOut</span></a>
 
 </div>
