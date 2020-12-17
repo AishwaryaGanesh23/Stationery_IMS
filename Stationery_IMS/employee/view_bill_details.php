@@ -100,7 +100,7 @@ while($row=mysqli_fetch_array($res))
                 Grand Total: <?php echo "₹".$total; ?>
             </div>
         </div>
-
+</div>
     </div>
 </div>
 

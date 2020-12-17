@@ -1,14 +1,14 @@
 <?php
 include "checklogin.php";
 include "header.php";
-include "connection.php";
+include "../employee/connection.php";
  ?>
 <!--main-container-part-->
 <div id="content">
     <!--breadcrumbs-->
     <div id="content-header">
-        <div id="breadcrumb"><a href="#" title="Current page" class="tip-bottom"><i class="fas fa-warehouse"></i>
-          Stock master</a></div>
+        <div id="breadcrumb"><a href="#" title="Current page" class="tip-bottom"><i class="fas fa-address-book"></i>
+          Customer List</a></div>
     </div>
     <!--End-breadcrumbs-->
 
@@ -20,38 +20,29 @@ include "connection.php";
             <div class="widget-box">
 
               <div class="widget-title"> <span class="icon"><i class="fas fa-book"></i></span>
-                <h5>Stock Master</h5>
+                <h5>customer List</h5>
               </div>
             <div class="widget-content nopadding">
               <table class="table table-bordered table-striped">
                 <thead>
                   <tr>
-                    <th>ID</th>
-                    <th>Company Name</th>
-                    <th>Product Name</th>
-                    <th>Packing Size</th>
-                    <th>Unit</th>
-                    <th>Quantity</th>
-                    <th>Sell Price</th>
-                    <th>Edit</th>
+                    <th>Sr no</th>
+                    <th>Phone Number</th>
+                    <th>Customer Name</th>
                   </tr>
                 </thead>
                 <tbody>
                   <?php
-                  $res = mysqli_query($link,"select * from stock_master");
+                  $res = mysqli_query($link,"select * from customers");
+                  $count=0;
                   while($row=mysqli_fetch_array($res))
-                  {
+                  { $count = $count +1;
                       ?>
 
                       <tr>
-                        <td><?php echo $row["id"] ?></td>
-                        <td><?php echo $row["company_name"] ?></td>
-                        <td><?php echo $row["product_name"] ?></td>
-                        <td><?php echo $row["prod_pack_size"] ?></td>
-                        <td><?php echo $row["product_unit"] ?></td>
-                        <td><?php echo $row["prod_qty"] ?></td>
-                        <td><?php echo $row["prod_sell_price"] ?></td>
-                        <td><center><a href="edit_stock.php?id=<?php echo $row["id"]; ?>" style="color:#11C2A3"> Edit </a></center></td>
+                        <td><?php echo $count ?></td>
+                        <td><?php echo $row["phno"] ?></td>
+                        <td><?php echo $row["full_name"] ?></td>
                       </tr>
 
                       <?php

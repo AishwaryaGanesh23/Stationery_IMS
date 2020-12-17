@@ -47,7 +47,7 @@ include "connection.php";
              ?>
           </table>
         </div>
-
+</div>
     </div>
 </div>
 

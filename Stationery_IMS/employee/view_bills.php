@@ -66,7 +66,7 @@ include "../employee/connection.php";
               {
                 $res = mysqli_query($link,"select * from billing_header order by id desc");
               }
-               
+
                while($row = mysqli_fetch_array($res))
                {
                  echo "<tr>";
@@ -81,10 +81,10 @@ include "../employee/connection.php";
                }
                ?>
             </table>
-        </div>
+        </div></div>
       </div>
     </div>
-</div>
+</div></div>
 
 <!--end-main-container-part-->
 

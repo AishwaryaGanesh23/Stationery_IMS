@@ -178,7 +178,7 @@ while ($row=mysqli_fetch_array($res))
 
                     </div>
                 </div>
-
+</div>
                 <!-- end new row-->
 
 

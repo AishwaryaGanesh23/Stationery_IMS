@@ -36,7 +36,7 @@
 <div id="sidebar">
     <ul>
         <li>
-            <a href="homepage.php"><i class="fas fa-home"></i><span>Dashboard</span></a>
+            <a href="homepage.php"><i class="fas fa-home"></i><span>Homepage</span></a>
         </li>
         <li>
             <a href="purchase_master.php"><i class="fas fa-money-check-alt"></i><span>Purchase Master</span></a>
@@ -46,13 +46,15 @@
             <a href="sales_master.php"><i class="fas fa-cash-register"></i><span>Sales Master</span></a>
         </li>
 
+
         <li class="submenu"><a href="#"><i class="fas fa-list"></i> <span>Reports</span> <span
                    class="label label-important">+</span></a>
                <ul>
-                   <li><a href="purchase_report.php"><i class="fas fa-money-check-alt"></i> <span> Purchase Report </span> </a></li>
+                   <li><a href="purchase_report.php"><i class="fas fa-receipt"></i> <span> Purchase Report </span> </a></li>
                    <li><a href="view_bills.php"><i class="fas fa-file-invoice-dollar"></i> <span> Sales Report </span> </a></li>
                    <li><a href="stock_master.php"><i class="fas fa-warehouse"></i> <span> Stock Report </span> </a></li>
                    <li>  <a href="returned_products_list.php"><i class="fas fa-undo-alt"></i> <span> Returns Report </span> </a></li>
+                   <li><a href="customers.php"><i class="fas fa-address-book"></i></i> <span> Customer List </span> </a></li>
                </ul>
            </li>
 

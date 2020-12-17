@@ -7,7 +7,7 @@ include "../employee/connection.php";
 <div id="content">
     <!--breadcrumbs-->
     <div id="content-header">
-        <div id="breadcrumb"><a href="#" title="Current page" class="tip-bottom"><i class="fas fa-money-check-alt"></i>
+        <div id="breadcrumb"><a href="#" title="Current page" class="tip-bottom"><i class="fas fa-receipt"></i></i>
           Purchase Master</a></div>
     </div>
     <!--End-breadcrumbs-->
@@ -109,9 +109,9 @@ include "../employee/connection.php";
                 </tbody>
               </table>
             </div>
-
+</div>
         </div>
-
+</div>
     </div>
 </div>
 
