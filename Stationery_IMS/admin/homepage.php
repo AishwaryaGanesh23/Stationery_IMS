@@ -15,7 +15,7 @@ include "header.php";
     <div class="container-fluid">
 
         <div class="row-fluid" style="background-color: white; min-height: 1000px; padding:10px;">
-            Admin Homepage
+            Admin Homepage : Welcome <?php echo $_SESSION["admin"] ?>
             <div class="span12">
 
 
