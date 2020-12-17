@@ -1,6 +1,5 @@
 <?php
 include "checklogin.php";
-include "checklogin.php";
 include "header.php";
 include "../employee/connection.php";
 $id = $_GET["id"];

@@ -35,8 +35,8 @@ include "../employee/connection.php";
                             <input type="date" id="date_end" name="date_end" placeholder="YYYY-MM-DD" value="<?php echo date("Y-m-d") ?>">
                        </div>
                        <br>
-                       <button type="submit" name="submitStart" class="btn btn-success">Show Purchase From These Dates</button>
-                       <button type="button" name="submitEnd" class="btn btn-warning" onclick="window.location.href=window.location.href">Clear Search</button>
+                       <button type="submit" name="submitDate" class="btn btn-success">Show Purchase From These Dates</button>
+                       <button type="button" name="clear" class="btn btn-warning" onclick="window.location.href=window.location.href">Clear Search</button>
                    </form>
 
                    <br>
@@ -68,7 +68,7 @@ include "../employee/connection.php";
                 </thead>
                 <tbody>
                   <?php
-                  if(isset($_POST["submitStart"]))
+                  if(isset($_POST["submitDate"]))
                   {
                     $res = mysqli_query($link,"select * from purchase_master where date_of_purchase>= '$_POST[date_start]' && date_of_purchase<='$_POST[date_end]'");
                   }
