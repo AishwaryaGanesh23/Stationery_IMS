@@ -43,7 +43,7 @@ session_start();
         <div class="form-actions">
           <center>
           <input type="submit" name = "LOGIN" value="Login" class="btn btn-success"/>
-          <button type="button" name="adminLogin" class="btn btn-warning" onclick="window.location.href=' ../admin/index.php'">Admin Login</button>
+          <button type="button" name="adminLogin" class="btn btn-warning" onclick="window.location.href=' ../admin/homepage.php'">Admin Login</button>
           </center>
         </div>
     </form>

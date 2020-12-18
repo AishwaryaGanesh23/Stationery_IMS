@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 17, 2020 at 12:44 PM
+-- Generation Time: Dec 18, 2020 at 06:01 AM
 -- Server version: 10.1.36-MariaDB
 -- PHP Version: 5.6.38
 
@@ -51,7 +51,8 @@ INSERT INTO `billing_details` (`id`, `bill_id`, `prod_company`, `prod_name`, `pr
 (5, '4', 'Cello', 'Butterflow Blue Ball Pens', 'pieces', '25', '250', 1),
 (7, '4', 'Navneet', 'A4 Notebook', 'pages', '100', '25', 1),
 (8, '5', 'Maped', 'Geometry Box', 'each', '1', '100', 2),
-(9, '5', 'Solimo', 'Journal', 'pages', '300', '300', 1);
+(9, '5', 'Solimo', 'Journal', 'pages', '300', '300', 1),
+(10, '6', 'Post-it', 'Cube 4 colour Sticky Note 3x3 inch', 'sheets', '80', '50', 10);
 
 -- --------------------------------------------------------
 
@@ -77,7 +78,8 @@ INSERT INTO `billing_header` (`id`, `phno`, `payment_method`, `date`, `bill_no`,
 (2, '9999999999', 'UPI', '2020-12-16', '00002', 'admin'),
 (3, '123456789', 'Credit', '2020-12-16', '00003', 'aishu'),
 (4, '2525252525', 'Debit', '2020-12-16', '00004', 'aishu'),
-(5, '8484848484', 'UPI', '2020-12-17', '00005', 'admin');
+(5, '8484848484', 'UPI', '2020-12-17', '00005', 'admin'),
+(6, '8484848484', 'Credit', '2020-12-17', '00006', 'admin');
 
 -- --------------------------------------------------------
 
@@ -95,7 +97,7 @@ CREATE TABLE `customers` (
 --
 
 INSERT INTO `customers` (`phno`, `full_name`) VALUES
-('123', 'abc'),
+('1231231231', 'abc'),
 ('123456789', 'kuro'),
 ('2525252525', 'twofive'),
 ('7774841977', 'Aishwarya'),
@@ -131,7 +133,9 @@ INSERT INTO `products` (`id`, `company_name`, `product_name`, `packing_size`, `u
 (10, 'Scotch', 'Clear Tape', '5', 'm'),
 (11, 'Faber-Castell', '24 Shades Brushpen', '1', 'each'),
 (12, 'Maped', 'Geometry Box', '1', 'each'),
-(13, 'Faber-Castell', '12 Shades Brushpen', '1', 'each');
+(13, 'Faber-Castell', '12 Shades Brushpen', '1', 'each'),
+(14, 'Camlin Kokuyo', '2B Pencils', '10', 'pieces'),
+(15, 'Apsara', 'HB Pencils', '10', 'pieces');
 
 -- --------------------------------------------------------
 
@@ -161,8 +165,8 @@ INSERT INTO `prod_company` (`id`, `company_name`) VALUES
 (11, 'Maped'),
 (12, 'Casio'),
 (13, 'Apsara'),
-(14, 'Staedtler'),
-(15, 'Post-it');
+(15, 'Post-it'),
+(16, 'Staedtler - Premium');
 
 -- --------------------------------------------------------
 
@@ -198,7 +202,8 @@ INSERT INTO `purchase_master` (`id`, `company_name`, `product_name`, `unit`, `pa
 (17, 'Natraj', 'HB Pencils', 'pieces', '10', 100, '2500', 'Choudhary Trading Co.', 'Bank Transfer', '2020-12-16', 'aishu'),
 (18, 'Scotch', 'Clear Tape', 'm', '5', 50, '1500', 'Choudhary Trading Co.', 'Credit Card', '2020-12-16', 'admin'),
 (19, 'Classmate', '2B Pencils', 'pieces', '20', 50, '1000', 'Royal Enterprise Stationery And Xerox', 'Cash', '2020-12-17', 'admin'),
-(20, 'Maped', 'Geometry Box', 'each', '1', 50, '5000', 'Royal Enterprise Stationery And Xerox', 'Bank Transfer', '2020-12-17', 'admin');
+(20, 'Maped', 'Geometry Box', 'each', '1', 50, '5000', 'Royal Enterprise Stationery And Xerox', 'Bank Transfer', '2020-12-17', 'admin'),
+(21, 'Solimo', 'Journal', 'pages', '300', 10, '2000', 'S. P. Kamat Stationery', 'Digital Payment', '2020-12-17', 'admin');
 
 -- --------------------------------------------------------
 
@@ -224,7 +229,8 @@ CREATE TABLE `returns` (
 --
 
 INSERT INTO `returns` (`id`, `bill_no`, `return_date`, `prod_company`, `prod_name`, `prod_unit`, `packing_size`, `prod_price`, `prod_qty`, `total`) VALUES
-(1, '00004', '2020-12-16', 'Natraj', 'HB Pencils', 'pieces', '10', '40', 1, '40');
+(1, '00004', '2020-12-16', 'Natraj', 'HB Pencils', 'pieces', '10', '40', 1, '40'),
+(2, '00006', '2020-12-17', 'Post-it', 'Cube 4 colour Sticky Note 3x3 inch', 'sheets', '40', '30', 10, '300');
 
 -- --------------------------------------------------------
 
@@ -247,15 +253,15 @@ CREATE TABLE `stock_master` (
 --
 
 INSERT INTO `stock_master` (`id`, `company_name`, `product_name`, `product_unit`, `prod_pack_size`, `prod_qty`, `prod_sell_price`) VALUES
-(1, 'Post-it', 'Cube 4 colour Sticky Note 3x3 inch', 'sheets', '80', 39, '50'),
+(1, 'Post-it', 'Cube 4 colour Sticky Note 3x3 inch', 'sheets', '80', 29, '50'),
 (2, 'Post-it', 'Cube 4 colour Sticky Note 3x3 inch', 'sheets', '40', 23, '30'),
 (3, 'Navneet', 'A4 Notebook', 'pages', '100', 94, '25'),
 (4, 'Cello', 'Butterflow Blue Ball Pens', 'pieces', '25', 9, '250'),
-(5, 'Solimo', 'Journal', 'pages', '300', 9, '300'),
+(5, 'Solimo', 'Journal', 'pages', '300', 19, '300'),
 (6, 'Natraj', 'HB Pencils', 'pieces', '10', 101, '40'),
 (7, 'Scotch', 'Clear Tape', 'm', '5', 47, '50'),
 (8, 'Classmate', '2B Pencils', 'pieces', '20', 50, '60'),
-(9, 'Maped', 'Geometry Box', 'each', '1', 48, '100');
+(9, 'Maped', 'Geometry Box', 'each', '1', 48, '120');
 
 -- --------------------------------------------------------
 
@@ -279,7 +285,9 @@ INSERT INTO `suppliers` (`id`, `name`, `contact`, `address`, `city`) VALUES
 (1, 'Casa JD Fernandes', '08322228004', 'Garcia de Orta Garden Serene square', 'Panjim'),
 (2, 'MBD GROUP', '0832 241 3982', '932, Pundalik Nagar, Kranti Nagar, Porvorim, Goa 403521', 'Porvorim'),
 (3, 'Choudhary Trading Co.', '0832 223 6913', 'Neugi Nagar, Goa', 'Panjim'),
-(4, 'Royal Enterprise Stationery And Xerox', '098347 04129', 'Shop No S-9, Demop Tower, EDC Complex, patto, Patto Centre, Panaji, Goa 403001', 'Panaji');
+(4, 'Royal Enterprise Stationery And Xerox', '098347 04129', 'Shop No S-9, Demop Tower, EDC Complex, patto, Patto Centre, Panaji, Goa 403001', 'Panaji'),
+(5, 'S.S.K. ENTERPRISES ', '8885664571', 'Neugi Nagar, Goa 403001', 'Panaji'),
+(6, 'S. P. Kamat Stationery', '8989856236', 'Defense colony, Porvorim Goa 403521', 'Porvorim');
 
 -- --------------------------------------------------------
 
@@ -307,7 +315,9 @@ INSERT INTO `units` (`id`, `unit`) VALUES
 (10, 'sheets'),
 (11, 'packs'),
 (12, 'm'),
-(13, 'mm');
+(13, 'mm'),
+(14, 'kg'),
+(15, 'cm');
 
 -- --------------------------------------------------------
 
@@ -332,7 +342,10 @@ CREATE TABLE `user_registration` (
 INSERT INTO `user_registration` (`id`, `firstname`, `lastname`, `username`, `password`, `role`, `status`) VALUES
 (1, 'aishwarya', 'ganesh', 'aishu', 'aishu123', 'employee', 'active'),
 (2, 'admin', 'admin', 'admin', 'admin', 'admin', 'active'),
-(3, 'Coco', 'Shiro', 'coshiro', 'cocoloco', 'employee', 'inactive');
+(3, 'Coco', 'Shiro', 'coshiro', 'cocoloco', 'employee', 'inactive'),
+(4, 'rohit', 'sharma', 'rsharma', 'sharma', 'employee', 'active'),
+(5, 'manager', 'desai', 'desaiman', 'manager', 'admin', 'inactive'),
+(6, 'dimple', 'khanna', 'dimplek', 'dimple', 'employee', 'active');
 
 --
 -- Indexes for dumped tables
@@ -413,37 +426,37 @@ ALTER TABLE `user_registration`
 -- AUTO_INCREMENT for table `billing_details`
 --
 ALTER TABLE `billing_details`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `billing_header`
 --
 ALTER TABLE `billing_header`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `prod_company`
 --
 ALTER TABLE `prod_company`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `purchase_master`
 --
 ALTER TABLE `purchase_master`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `returns`
 --
 ALTER TABLE `returns`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `stock_master`
@@ -455,19 +468,19 @@ ALTER TABLE `stock_master`
 -- AUTO_INCREMENT for table `suppliers`
 --
 ALTER TABLE `suppliers`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `units`
 --
 ALTER TABLE `units`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `user_registration`
 --
 ALTER TABLE `user_registration`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Constraints for dumped tables
